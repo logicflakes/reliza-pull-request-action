@@ -66,6 +66,7 @@ runs:
           last_commit=$(echo $latest_release | jq -r ".sourceCodeEntryDetails.commit")
           sleep 10
           ((retries++))
+          echo "Retries: $retries"
         done
 
         if [ ${PR_HEAD_COMMIT} = ${last_commit} ]
