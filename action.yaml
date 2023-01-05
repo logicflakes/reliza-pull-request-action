@@ -39,6 +39,7 @@ runs:
       id: extract-commits
       shell: bash
       run: |
+        set -x
         cd ${{ inputs.path }}
         dobuild=false
         echo -n "-i ${{ inputs.reliza_api_id }} -k ${{ inputs.reliza_api_key }} -u ${{ inputs.reliza_api_url }} -b ${{github.ref_name}}"  > get_latest_release_cmd
@@ -78,6 +79,7 @@ runs:
       name: Submit PR Data
       shell: bash
       run: |
+        set -x
         echo -n "-i ${{ inputs.reliza_api_id }} -k ${{ inputs.reliza_api_key }} -u ${{ inputs.reliza_api_url }} -b ${{github.ref_name}}"  > pr_cmd 
         if [ ! -z ${{inputs.reliza_project_id}} ]
         then
