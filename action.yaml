@@ -54,7 +54,7 @@ runs:
         
         PR_HEAD_COMMIT=${{ github.event.pull_request.head.sha }}
         retries=0
-        until [ ${PR_HEAD_COMMIT} = ${last_commit} ]
+        until [ $PR_HEAD_COMMIT = $last_commit ]
         do
           if [[ $retries -eq 5]]
           then
