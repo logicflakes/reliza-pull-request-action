@@ -42,7 +42,7 @@ runs:
         set -x
         cd ${{ inputs.path }}
         dobuild=false
-        echo -n "-i ${{ inputs.reliza_api_id }} -k ${{ inputs.reliza_api_key }} -u ${{ inputs.reliza_api_url }} -b ${{github.ref_name}}"  > get_latest_release_cmd
+        echo -n "-i ${{ inputs.reliza_api_id }} -k ${{ inputs.reliza_api_key }} -u ${{ inputs.reliza_api_url }} -b ${{ github.head_ref }}"  > get_latest_release_cmd
         if [ ! -z ${{inputs.reliza_project_id}} ]
         then
           echo " --project ${{inputs.reliza_project_id}} " >> get_latest_release_cmd
