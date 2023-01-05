@@ -65,7 +65,7 @@ runs:
           latest_release=$(eval "$(cat get_latest_release_exec)")
           last_commit=$(echo $latest_release | jq -r ".sourceCodeEntryDetails.commit")
           sleep 10
-          retries++
+          ((retries++))
         done
 
         if [ ${PR_HEAD_COMMIT} = ${last_commit} ]
